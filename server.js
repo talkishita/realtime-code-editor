@@ -46,8 +46,10 @@ io.on('connection', (socket) => {
         socket.in(roomId).emit(ACTIONS.CODE_CHANGE, { code });
     });
 
-    socket.on(ACTIONS.SYNC_CODE, ({ socketId, code }) => {
+    socket.on(ACTIONS.SYNC_CODE, ({ socketId, code,output, language }) => {
         io.to(socketId).emit(ACTIONS.CODE_CHANGE, { code });
+        io.to(socketId).emit(ACTIONS.OUTPUT_CHANGE, {output});
+        io.to(socketId).emit(ACTIONS.LANGUAGE_CHANGE, {language});
     });
 
     socket.on('disconnecting', () => {
@@ -60,6 +62,14 @@ io.on('connection', (socket) => {
         });
         delete userSocketMap[socket.id];
         socket.leave();
+    });
+    
+    socket.on(ACTIONS.OUTPUT_CHANGE, ({roomId, output}) => {
+        socket.broadcast.to(roomId).emit(ACTIONS.OUTPUT_CHANGE, {output});
+    });
+
+    socket.on(ACTIONS.LANGUAGE_CHANGE, ({roomId, language}) => {
+        socket.in(roomId).emit(ACTIONS.LANGUAGE_CHANGE, {language});
     });
 });
 

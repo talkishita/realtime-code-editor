@@ -91,16 +91,17 @@ footer a:hover {
 
 .mainWrap {
     display: grid;
-    grid-template-columns: 230px 1fr;
+    grid-template-columns: 645px 640px 250px;
 }
 
 .aside {
-    background: #1c1e29;
+    background: #252d5e;
     padding: 16px;
     color: #fff;
     display: flex;
     flex-direction: column;
 }
+
 .asideInner {
     flex: 1;
 }
@@ -118,13 +119,16 @@ footer a:hover {
     flex-direction: column;
     font-weight: bold;
 }
+
 .userName {
     margin-top: 10px;
 }
 
 .logo {
+    margin-top: -20px;
     border-bottom: 1px solid #424242;
     padding-bottom: 10px;
+    height: 55px;
 }
 
 .logoImage {
@@ -140,4 +144,48 @@ footer a:hover {
     font-size: 20px;
     line-height: 1.6;
     padding-top: 20px;
+}
+
+.consoleWrap {
+    width: 1fr;
+    border-left: 5px solid #252d5e;
+    padding: 10px;  
+}
+
+.consoleWrap pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.outputHeader{
+    /* background-color: #020202;   */
+    display: flex;
+    color: #4aed88;
+    border-bottom: 1px solid #424242;
+    justify-content: space-between;
+}
+.outputHeading{
+    /* flex: 0 0 50%; */
+}
+.runLangButton{
+   display: flex;
+   margin-top: 10px;
+
+}
+.outputArea {
+    /* border: 1px solid #ccc; */
+    color: white;
+    width: 100%;
+}
+
+.runButton{
+    margin-right: 10px;
+}
+
+.langButton{
+    margin-right: 10px;
+}
+
+.coditor{
+    color:#4aed88 ;
 }
